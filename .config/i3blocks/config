@@ -1,0 +1,28 @@
+[WEATHER_SIGNALER]
+command=~/.config/i3blocks/weather/weather_signaler
+interval=once
+
+[CPU]
+full_text= 0.00%
+command=mpstat 1 1 | awk '/Average:/ {printf(" %6s% \n", $(NF-9))}'
+interval=repeat
+color=#00B4EB
+
+[MEM]
+command=free -h | awk '/Mem:/ {printf(" %5s \n", $7) }'
+interval=repeat
+color=#FEC925
+
+[SOUND_BURST]
+command=~/.config/i3blocks/sound/sound_burst.sh
+interval=once
+
+[SOUND]
+full_text= 🔇:  0% 
+command=~/.config/i3blocks/sound/sound_info.sh
+interval=repeat
+signal=1
+
+[TIME_DATE]
+command=date +" %a, %d %b - %H:%M:%S"
+interval=1
